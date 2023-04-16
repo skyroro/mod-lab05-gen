@@ -6,7 +6,7 @@
 
 Срок выполнения задания:
 
-**до 16.04** ![Relative date](https://img.shields.io/date/1681678800)
+**до 30.04** ![Relative date](https://img.shields.io/date/1682888400)
 
 ## Lab 05. Генератор текста на основе n-грамм
 

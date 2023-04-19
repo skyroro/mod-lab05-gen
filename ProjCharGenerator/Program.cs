@@ -1,45 +1,49 @@
-﻿using System;
+using System;
+using System.IO;
+using System.Buffers.Text;
 using System.Collections.Generic;
 
 namespace generator
 {
-    class CharGenerator 
-    {
-        private string syms = "абвгдеёжзийклмнопрстуфхцчшщьыъэюя"; 
-        private char[] data;
-        private int size;
-        private Random random = new Random();
-        public CharGenerator() 
-        {
-           size = syms.Length;
-           data = syms.ToCharArray(); 
-        }
-        public char getSym() 
-        {
-           return data[random.Next(0, size)]; 
-        }
-    }
     class Program
     {
         static void Main(string[] args)
-        {
-            CharGenerator gen = new CharGenerator();
-            SortedDictionary<char, int> stat = new SortedDictionary<char, int>();
-            for(int i = 0; i < 1000; i++) 
+        {           
+            GeneratorBasedOnBigrams gen1 = new GeneratorBasedOnBigrams();
+            StreamWriter sw1 = new StreamWriter("BigramsResult.txt");
+            int i = 0;
+            while(i < 1000)
             {
-               char ch = gen.getSym(); 
-               if (stat.ContainsKey(ch))
-                  stat[ch]++;
-               else
-                  stat.Add(ch, 1); Console.Write(ch);
+                string ch = gen1.getSym();
+                i += ch.Length;
+
+                sw1.Write(ch + " ");
             }
-            Console.Write('\n');
-            foreach (KeyValuePair<char, int> entry in stat) 
+            sw1.Close();
+
+            GeneratorBasedWord gen2 = new GeneratorBasedWord();
+            StreamWriter sw2 = new StreamWriter("WordResult.txt");
+            i = 0;
+            while (i < 1000)
             {
-                 Console.WriteLine("{0} - {1}",entry.Key,entry.Value/1000.0); 
+                string ch = gen2.getSym();
+                i += ch.Length;
+
+                sw2.Write(ch + " ");
             }
-            
+            sw2.Close();
+
+            GeneratorOnPairsOfWords gen3 = new GeneratorOnPairsOfWords();
+            StreamWriter sw3 = new StreamWriter("PairsOfWordsResult.txt");
+            i = 0;
+            while (i < 1000)
+            {
+                string ch = gen3.getSym();
+                i += ch.Length;
+
+                sw3.Write(ch + " ");
+            }
+            sw3.Close();
         }
     }
 }
-

@@ -13,7 +13,7 @@ namespace generator
         private Random random = new Random();
         
         public GeneratorBasedOnBigrams()
-		{
+	{
             size = syms.Length;
             data = syms.ToCharArray();
             weights = new int[size, size];
@@ -48,7 +48,7 @@ namespace generator
             char temp = data[index];
 
             int[] letterWeights = new int[size];
-            for (int i = 0; i < letterWeights.Count(); i++)
+            for (int i = 0; i < size; i++)
             {
                 letterWeights[i] = weights[index, i];
                 summa += letterWeights[i];

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 namespace generator
 {
 	public class GeneratorBasedOnBigrams

@@ -4,7 +4,7 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using generator;
 
-namespace tests;
+namespace tests
 {
     [TestClass]
     public class UnitTest1

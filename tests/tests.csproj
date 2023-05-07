@@ -17,6 +17,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\generator\generator.csproj" />
+    <ProjectReference Include="..\ProjCharGenerator\ProjCharGenerator.csproj" />
+  </ItemGroup>
+  
+    <ItemGroup>
+    <None Update="BigramsResult.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <None Update="WordResult.txt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <None Update="PairsOfWordsResult.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
   </ItemGroup>
 </Project>

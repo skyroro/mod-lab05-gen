@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Drawing;
 
 namespace generator
 {
-	public class GeneratorBasedWord
-    {
+        public class GeneratorBasedWord
+        {
         private string[] data;
         int[] weights;
         private int size;
@@ -16,14 +16,15 @@ namespace generator
         int summa = 0;
 
         public GeneratorBasedWord()
-		{
+	{
             size = 100;
             data = new string[size];
             weights = new int[size];
 
             try
             {
-                using (StreamReader sr = new StreamReader("Words.txt")) //считывание из файла
+	        string fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\..\\"), "Words.txt");
+                using (StreamReader sr = new StreamReader(fileName))
                 {
                     int i = 0;
                     string line;

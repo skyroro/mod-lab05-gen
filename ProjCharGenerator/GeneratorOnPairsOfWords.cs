@@ -14,14 +14,15 @@ namespace generator
         int summa = 0;
 
         public GeneratorOnPairsOfWords()
-		{
+	{
             size = 100;
             data = new string[size];
             weights = new int[size];
 
             try
             {
-                using (StreamReader sr = new StreamReader("PairsOfWords.txt"))
+                string fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\..\\"), "PairsOfWords.txt");    
+		using (StreamReader sr = new StreamReader(fileName))
                 {
                     int i = 0;
                     string line;

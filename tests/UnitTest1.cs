@@ -9,15 +9,15 @@ namespace tests;
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod] //количество символов в биграммах
-        public void TestMethod1()
+        [TestMethod]
+        public void NumberOfCharactersInBigrams()
         {
             GeneratorBasedOnBigrams gen = new GeneratorBasedOnBigrams();
             string text = "";
             int i = 0;
             while (i < 1000)
             {
-                string ch = gen.getSym();//вызываем метод класса генерации
+                string ch = gen.getSym();
                 i += ch.Length;
                 text += ch;
             }
@@ -26,8 +26,8 @@ namespace tests;
             Assert.AreEqual(expected, result);
         }
 
-        [TestMethod] //недопустимые слоги в биграммах
-        public void TestMethod2()
+        [TestMethod]
+        public void InvalidSyllablesInBigrams()
         {
             GeneratorBasedOnBigrams gen = new GeneratorBasedOnBigrams();
             string text = "";
@@ -48,8 +48,8 @@ namespace tests;
             Assert.AreEqual(invalid, false);
         }
 
-        [TestMethod] //проверка вероятности в известном тексте биграммы
-        public void TestMethod3()
+        [TestMethod]
+        public void ProbabilityCheck()
         {
             GeneratorBasedOnBigrams gen = new GeneratorBasedOnBigrams();
             SortedDictionary<string, int> stat = new SortedDictionary<string, int>();
@@ -72,8 +72,8 @@ namespace tests;
             Assert.AreEqual(expected, result);
         }
 
-        [TestMethod] //слова кол-во символов
-        public void TestMethod4()
+        [TestMethod]
+        public void WordsNumberOfCharacters()
         {
             GeneratorBasedWord gen = new GeneratorBasedWord();
             bool Bad = false;
@@ -81,7 +81,7 @@ namespace tests;
             int i = 0;
             while (i < 1000)
             {
-                string ch = gen.getSym();//вызываем метод класса генерации
+                string ch = gen.getSym();
                 i += ch.Length;
                 text += ch;
             }
@@ -89,11 +89,11 @@ namespace tests;
             Assert.AreEqual(Bad, false);
         }
 
-        [TestMethod] //вероятность в словах
-        public void TestMethod5() 
+        [TestMethod]
+        public void ProbabilityInWords() 
         {
             GeneratorBasedWord gen = new GeneratorBasedWord();
-            SortedDictionary<string, int> stat = new SortedDictionary<string, int>(); //создаем словарь
+            SortedDictionary<string, int> stat = new SortedDictionary<string, int>();
             string text;
             using (StreamReader sr = new StreamReader("WordResult.txt"))
             {
@@ -113,8 +113,8 @@ namespace tests;
             Assert.AreEqual(expected, result);
         }
 
-        [TestMethod] //пары слов кол-во символов
-        public void TestMethod6()
+        [TestMethod]
+        public void WordPairsNumberOfCharacters()
         {
             GeneratorOnPairsOfWords gen = new GeneratorOnPairsOfWords();
             bool Bad = false;
@@ -122,7 +122,7 @@ namespace tests;
             int i = 0;
             while (i < 1000)
             {
-                string ch = gen.getSym();//вызываем метод класса генерации
+                string ch = gen.getSym();
                 i += ch.Length;
                 text += ch;
             }
@@ -130,11 +130,11 @@ namespace tests;
             Assert.AreEqual(Bad, false);
         }
 
-        [TestMethod] //вероятность в парах словах
-        public void TestMethod7()
+        [TestMethod]
+        public void ProbabilityInPairsOfWords()
         {
             GeneratorOnPairsOfWords gen = new GeneratorOnPairsOfWords();
-            SortedDictionary<string, int> stat = new SortedDictionary<string, int>(); //создаем словарь
+            SortedDictionary<string, int> stat = new SortedDictionary<string, int>();
             string text;
             using (StreamReader sr = new StreamReader("PairsOfWordsResult.txt"))
             {

@@ -11,7 +11,7 @@ namespace generator
         private int size;
 
         private Random random = new Random();
-        
+	
         public GeneratorBasedOnBigrams()
 	{
             size = syms.Length;
@@ -19,7 +19,8 @@ namespace generator
             weights = new int[size, size];
             try
             {
-                using (StreamReader sr = new StreamReader("Bigrams.txt")) //считывание из файла
+                string fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\..\\"), "Bigrams.txt");
+                using (StreamReader sr = new StreamReader(fileName))//считывание из файла
                 {
                     int i = 0;
                     string line;

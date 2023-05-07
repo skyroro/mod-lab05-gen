@@ -8,9 +8,10 @@ namespace generator
     class Program
     {
         static void Main(string[] args)
-        {           
+        {
             GeneratorBasedOnBigrams gen1 = new GeneratorBasedOnBigrams();
-            StreamWriter sw1 = new StreamWriter("BigramsResult.txt");
+            string fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\..\\"), "BigramsResult.txt");
+            StreamWriter sw1 = new StreamWriter(fileName);
             int i = 0;
             while(i < 1000)
             {
@@ -22,7 +23,8 @@ namespace generator
             sw1.Close();
 
             GeneratorBasedWord gen2 = new GeneratorBasedWord();
-            StreamWriter sw2 = new StreamWriter("WordResult.txt");
+            fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\..\\"), "WordResult.txt");
+            StreamWriter sw2 = new StreamWriter(fileName);
             i = 0;
             while (i < 1000)
             {
@@ -34,7 +36,8 @@ namespace generator
             sw2.Close();
 
             GeneratorOnPairsOfWords gen3 = new GeneratorOnPairsOfWords();
-            StreamWriter sw3 = new StreamWriter("PairsOfWordsResult.txt");
+            fileName = Path.Combine(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\..\\"), "PairsOfWordsResult.txt");
+            StreamWriter sw3 = new StreamWriter(fileName);
             i = 0;
             while (i < 1000)
             {

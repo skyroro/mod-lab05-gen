@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using generator;
 
 namespace tests;

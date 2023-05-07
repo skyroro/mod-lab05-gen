@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using generator;
 
 namespace tests;
-
+{
 [TestClass]
 public class UnitTest1
 {
@@ -153,4 +153,5 @@ public class UnitTest1
         double expected = 9;
         Assert.AreEqual(expected, result);
     }
+}
 }

@@ -13,16 +13,17 @@ namespace tests
         [TestMethod]
         public void NumberOfCharactersInBigrams()
         {
-            GeneratorBasedOnBigrams gen = new GeneratorBasedOnBigrams();
-            string text = "";
-            int i = 0;
-            while (i < 1000)
+            string text;
+            double result = 0;
+            using (StreamReader sr = new StreamReader("BigramsResult.txt"))
             {
-                string ch = gen.getSym();
-                i += ch.Length;
-                text += ch;
+                text = sr.ReadToEnd();
             }
-            double result = text.Length;
+            string[] data = text.Split(' ');
+            for (int i = 0; i < data.Length; i++)
+            {
+                result += data[i].Length;
+            }
             double expected = 1000;
             Assert.AreEqual(expected, result);
         }
@@ -30,20 +31,21 @@ namespace tests
         [TestMethod]
         public void InvalidSyllablesInBigrams()
         {
-            GeneratorBasedOnBigrams gen = new GeneratorBasedOnBigrams();
-            string text = "";
             string[] invalidСombinations = { "бб", "зж", "кд", "зй", "пг", "жч", "йь", "кы", "эа", "ьы" };
             bool invalid = false;
-            int i = 0;
-            while (i < 1000)
-            {
-                string ch = gen.getSym();
-                i += ch.Length;
-                text += ch;
 
+            string text;
+            using (StreamReader sr = new StreamReader("BigramsResult.txt"))
+            {
+                text = sr.ReadToEnd();
+            }
+            string[] data = text.Split(' ');
+
+            for (int i = 0; i < data.Length; i++)
+            {
                 for (int k = 0; k < invalidСombinations.Length; k++)
                 {
-                    if (ch == invalidСombinations[k]) invalid = true;
+                    if (data[i] == invalidСombinations[k]) invalid = true;
                 }
             }
             Assert.AreEqual(invalid, false);
@@ -76,16 +78,19 @@ namespace tests
         [TestMethod]
         public void WordsNumberOfCharacters()
         {
-            GeneratorBasedWord gen = new GeneratorBasedWord();
+            string text;
+            double result = 0;
             bool Bad = false;
-            string text = "";
-            int i = 0;
-            while (i < 1000)
+            using (StreamReader sr = new StreamReader("WordResult.txt"))
             {
-                string ch = gen.getSym();
-                i += ch.Length;
-                text += ch;
+                text = sr.ReadToEnd();
             }
+            string[] data = text.Split(' ');
+            for (int i = 0; i < data.Length; i++)
+            {
+                result += data[i].Length;
+            }
+
             if (text.Length < 1000) Bad = true;
             Assert.AreEqual(Bad, false);
         }
@@ -117,15 +122,17 @@ namespace tests
         [TestMethod]
         public void WordPairsNumberOfCharacters()
         {
-            GeneratorOnPairsOfWords gen = new GeneratorOnPairsOfWords();
+            string text;
+            double result = 0;
             bool Bad = false;
-            string text = "";
-            int i = 0;
-            while (i < 1000)
+            using (StreamReader sr = new StreamReader("PairsOfWordsResult.txt"))
             {
-                string ch = gen.getSym();
-                i += ch.Length;
-                text += ch;
+                text = sr.ReadToEnd();
+            }
+            string[] data = text.Split(' ');
+            for (int i = 0; i < data.Length; i++)
+            {
+                result += data[i].Length;
             }
             if (text.Length < 1000) Bad = true;
             Assert.AreEqual(Bad, false);
